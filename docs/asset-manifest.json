@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static_page_design/static/css/main.e37e878f.css",
+    "main.js": "/static_page_design/static/js/main.2e1dd34d.js",
+    "static/js/787.9b5bf678.chunk.js": "/static_page_design/static/js/787.9b5bf678.chunk.js",
+    "static/media/video1.png": "/static_page_design/static/media/video1.7176b689a70b0fae58c5.png",
+    "static/media/BackImg.png": "/static_page_design/static/media/BackImg.75cfcd9b90acfcfb4a26.png",
+    "static/media/Certificate.png": "/static_page_design/static/media/Certificate.57f499760de6a1355aad.png",
+    "static/media/Owner.png": "/static_page_design/static/media/Owner.86573ea51a9be5b946b8.png",
+    "static/media/YouTubeTumb.png": "/static_page_design/static/media/YouTubeTumb.d204a5ba1aee5d9dcc00.png",
+    "static/media/OfferImage.png": "/static_page_design/static/media/OfferImage.9fe94af4dbc135ce8147.png",
+    "static/media/IPhone.png": "/static_page_design/static/media/IPhone.4fcf667006a26791a400.png",
+    "static/media/Group1.png": "/static_page_design/static/media/Group1.b96442164b9ca40bc082.png",
+    "static/media/Group3.png": "/static_page_design/static/media/Group3.9ce214dd407c5c63935d.png",
+    "static/media/Group2.png": "/static_page_design/static/media/Group2.2ecd34e0a23ad4b7cb5e.png",
+    "static/media/main.png": "/static_page_design/static/media/main.9f5f540f655ec0e33e50.png",
+    "index.html": "/static_page_design/index.html",
+    "main.e37e878f.css.map": "/static_page_design/static/css/main.e37e878f.css.map",
+    "main.2e1dd34d.js.map": "/static_page_design/static/js/main.2e1dd34d.js.map",
+    "787.9b5bf678.chunk.js.map": "/static_page_design/static/js/787.9b5bf678.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e37e878f.css",
+    "static/js/main.2e1dd34d.js"
+  ]
+}
