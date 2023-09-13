@@ -12,6 +12,8 @@ import { Box, MobileStepper, createTheme } from '@mui/material';
 import backImage from './../assest/BackImg.png'
 import Quote1 from "./../assest/quote1.png"
 import Quote2 from "./../assest/quote2.png"
+import YouTubeTumb from './../assest/YouTubeTumb.png'
+
 
 export default function ImgMediaCard() {
     const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -94,7 +96,7 @@ export default function ImgMediaCard() {
                             component="img"
                             alt="green iguana"
                             height="140"
-                            image={BackImg}
+                            image={YouTubeTumb}
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">

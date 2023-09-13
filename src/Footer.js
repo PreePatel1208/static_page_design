@@ -18,6 +18,8 @@ import Facebook from './assest/facebook.png'
 import Youtube from './assest/youtube.png'
 import linkedInIcon from './assest/linkedInIcon.png'
 import Twitter from './assest/Twitter.png'
+import ButtonCompo from './componets/ButtonCompo';
+import Title from './componets/Title';
 
 function generate(element) {
     return [0, 1, 2].map((value) =>
@@ -108,169 +110,168 @@ export default function InteractiveList() {
     const [secondary, setSecondary] = React.useState(false);
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} md={2}>
-                    <ThemeProvider theme={theme}>
-                        <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                            convey
-                        </Typography>
-                    </ThemeProvider>
-                    <Demo>
+
+        <div
+            style={{
+                background: 'linear-gradient(to bottom,  #FFFFFF,#352A9A)',
+                minHeight: '100vh', // Adjust the minimum height as needed
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '20px',
+            }}
+        >
+            <Grid container spacing={2} sx={{ mt: 3 }}>
+
+                <Grid item xs={12}>
+                    <Title title="Still Have More Questions?" />
+                </Grid>
+                <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 2 }}>
+                    <ButtonCompo label="CONTACT US" size={20} />
+                </Grid>
+            </Grid>
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid container spacing={2}>
+                    {/* Your content goes here */}
+                    <Grid item xs={12} md={2}>
+                        <ThemeProvider theme={theme}>
+                            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                                Convey
+                            </Typography>
+                        </ThemeProvider>
                         <List dense={dense}>
-                            {convey.map((element) =>
-                                <ListItem>
+                            {convey.map((element, index) => (
+                                <ListItem key={index}>
                                     <ListItemText
                                         primary={element}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                 </ListItem>
-                            )}
+                            ))}
                         </List>
-                    </Demo>
-                </Grid>
-                <Grid item xs={12} md={2}>
-                    <ThemeProvider theme={theme}>
-                        <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                            Contact US
-                        </Typography>
-                    </ThemeProvider>
-                    <Demo>
+                    </Grid>
+                    <Grid item xs={12} md={2}>
+                        <ThemeProvider theme={theme}>
+                            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                                Contact Us
+                            </Typography>
+                        </ThemeProvider>
                         <List dense={dense}>
-                            {contactUs.map((element) =>
-                                <ListItem>
+                            {contactUs.map((element, index) => (
+                                <ListItem key={index}>
                                     <ListItemText
-                                        primary={
-                                            <ThemeProvider theme={theme}>
-                                                <Typography variant="h6" component="div">
-                                                    {element}
-                                                </Typography>
-                                            </ThemeProvider>
-                                        }
+                                        primary={element}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                 </ListItem>
-                            )}
+                            ))}
                         </List>
-                    </Demo>
-                </Grid>
-                <Grid item xs={12} md={2}>
-                    <ThemeProvider theme={theme}>
-                        <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                            Legal Stuff
-                        </Typography>
-                    </ThemeProvider>
-                    <Demo>
+                    </Grid>
+                    <Grid item xs={12} md={2}>
+                        <ThemeProvider theme={theme}>
+                            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                                Legal Stuff
+                            </Typography>
+                        </ThemeProvider>
                         <List dense={dense}>
-                            {legalStuff.map((element) =>
-                                <ListItem>
+                            {legalStuff.map((element, index) => (
+                                <ListItem key={index}>
                                     <ListItemText
-                                        primary={
-                                            <ThemeProvider theme={theme}>
-                                                <Typography variant="h6" component="div">
-                                                    {element}
-                                                </Typography>
-                                            </ThemeProvider>
-                                        }
+                                        primary={element}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                 </ListItem>
-                            )}
+                            ))}
                         </List>
-                    </Demo>
-                </Grid>
-                <Grid item xs={12} md={2}>
-                    <ThemeProvider theme={theme}>
-                        <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                            Follow Us
-                        </Typography>
-                    </ThemeProvider>
-                    <Demo>
+                    </Grid>
+                    <Grid item xs={12} md={2}>
+                        <ThemeProvider theme={theme}>
+                            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                                Follow Us
+                            </Typography>
+                        </ThemeProvider>
                         <List dense={dense}>
-                            {followUs.map((element) =>
-                                <ListItem>
-                                    <ListItemAvatar>
-                                        <Avatar>
-                                            <img
-                                                src={element.icon}
-                                                alt='Icon'
-                                            />
-                                        </Avatar>
-                                    </ListItemAvatar>
-                                    <ListItemText
-                                        primary={
-                                            <ThemeProvider theme={theme}>
-                                                <Typography variant="h6" component="div">
-                                                    {element.title}
-                                                </Typography>
-                                            </ThemeProvider>
-                                        }
-                                        secondary={secondary ? 'Secondary text' : null}
-                                    />
-                                </ListItem>,
-                            )}
-                        </List>
-                    </Demo>
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <Demo>
-                        <List dense={dense}>
-                            {contactDetail.map((element) =>
-                                <ListItem>
+                            {followUs.map((element, index) => (
+                                <ListItem key={index}>
                                     <ListItemAvatar>
                                         <Avatar>
                                             {element.icon}
                                         </Avatar>
                                     </ListItemAvatar>
                                     <ListItemText
-                                        primary={
-                                            <ThemeProvider theme={theme}>
-                                                <Typography variant="h6" component="div">
-                                                    {element.title}
-                                                </Typography>
-                                            </ThemeProvider>
-                                        }
+                                        primary={element.title}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
-                                </ListItem>,
-                            )}
+                                </ListItem>
+                            ))}
                         </List>
-                    </Demo>
-                </Grid>
-            </Grid>
-            <Grid container >
-                <Grid item xs={12} 
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: "center",
-                        textAlign: "center",
-                    }}
-                >
-                    <Box
+                    </Grid>
 
+                    <Grid item xs={12} md={3}>
+                        <List dense={dense}>
+                            {contactDetail.map((element, index) => (
+                                <ListItem key={index}>
+                                    <ListItemAvatar>
+                                        <Avatar>
+                                            {element.icon}
+                                        </Avatar>
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                        primary={element.title}
+                                        secondary={secondary ? 'Secondary text' : null}
+                                    />
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Grid>
+                    {/* Repeat the above Grid items for other sections */}
+                </Grid>
+                <Grid container>
+                    <Grid
+                        item
+                        xs={12}
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            textAlign: 'center',
+                        }}
                     >
-                        <ThemeProvider theme={theme}>
-                            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                                Terms and conditions | Privacy Policy
-                            </Typography>
-                        </ThemeProvider>
+                        <Box>
+                            <ThemeProvider theme={theme}>
+                                <Typography
+                                    sx={{ mt: 4, mb: 2 }}
+                                    variant="h6"
+                                    component="div"
+                                >
+                                    Terms and conditions | Privacy Policy
+                                </Typography>
+                            </ThemeProvider>
 
-                        <ThemeProvider theme={theme}>
-                            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                                ©2018 - Ikashi Fintech Pvt. Ltd. | All right reserved
-                            </Typography>
-                        </ThemeProvider>
+                            <ThemeProvider theme={theme}>
+                                <Typography
+                                    sx={{ mt: 4, mb: 2 }}
+                                    variant="h6"
+                                    component="div"
+                                >
+                                    ©2018 - Ikashi Fintech Pvt. Ltd. | All rights reserved
+                                </Typography>
+                            </ThemeProvider>
 
-                        <ThemeProvider theme={theme}>
-                            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                                mailto: support@convey.in
-                            </Typography>
-                        </ThemeProvider>
-                    </Box>
-
+                            <ThemeProvider theme={theme}>
+                                <Typography
+                                    sx={{ mt: 4, mb: 2 }}
+                                    variant="h6"
+                                    component="div"
+                                >
+                                    mailto: support@convey.in
+                                </Typography>
+                            </ThemeProvider>
+                        </Box>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Box>
+            </Box>
+        </div>
     );
 }

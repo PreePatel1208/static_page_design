@@ -93,19 +93,7 @@ function SwipeableTextMobileStepper() {
     }
   );
 
-  const HorizontalLinearAlternativeLabelStepper = () => {
-    return (
-      <Box sx={{ width: '100%' }}>
-        <Stepper activeStep={activeStep} alternativeLabel>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Box>
-    );
-  }
+
 
   return (
     <>
@@ -113,7 +101,7 @@ function SwipeableTextMobileStepper() {
         <Box
           sx={{
             display: "flex",
-            mb:4
+            mb: 4
           }}
         >
           <Button variant="contained"
@@ -127,7 +115,7 @@ function SwipeableTextMobileStepper() {
             }}
           >Chapters
           </Button>
-          <Stack spacing={2}>
+          {/* <Stack spacing={2}>
             <ThemeProvider theme={newtheme}>
               <Pagination
                 count={5}
@@ -139,10 +127,12 @@ function SwipeableTextMobileStepper() {
                 )}
               />
             </ThemeProvider>
-          </Stack>
+          </Stack> */}
         </Box>
-        <Box sx={{ flexGrow: 1 ,position: "relative",
-            mt: 5}}   
+        <Box sx={{
+          flexGrow: 1, position: "relative",
+          mt: 5
+        }}
         >
 
           <AutoPlaySwipeableViews
@@ -197,7 +187,7 @@ function SwipeableTextMobileStepper() {
                           ml: 2
                         }}
                       >
-                       <Button variant="contained"
+                        <Button variant="contained"
                           sx={{
                             px: 2,
                             py: 1,
