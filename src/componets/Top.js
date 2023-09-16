@@ -20,6 +20,7 @@ const Top = () => {
                 alignItem: "center",
                 justifyContent: "center",
                 maxWidth:"20rem",
+                mt:3
             }}
         >
             <Box

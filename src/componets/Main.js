@@ -27,7 +27,11 @@ import CarouselComponent from './Carousel';
 import Offer from './OfferCarasoul';
 const Main = () => {
 
-    const theme = createTheme();
+    const theme = createTheme({
+        typography: {
+            fontFamily: "Ubuntu",
+        }
+    });
 
     theme.typography.h6 = {
         fontSize: '1.2rem',
@@ -469,7 +473,9 @@ const Main = () => {
                         <Typography variant="h6">
                             Anyone who wants to know how to analyze a company and pick
                         </Typography>
-                        <Typography sx={containerstyles.label}>THE RIGHT STOCKS!</Typography>
+                        <Typography sx={
+                           { ...containerstyles.label,
+                           } }>THE RIGHT STOCKS!</Typography>
                     </Grid>
                     <Grid item xs={12} sm={4} sx={containerstyles.container}>
                         <FormGroup>
@@ -721,7 +727,7 @@ const Main = () => {
 
                 <Title title="Testimonials" />
 
-                <ImgMediaCard />
+                {/* <ImgMediaCard /> */}
                 <Title title="Learn Anytime & Anywhere" />
                 <Grid container spacing={2} sx={{ mt: { xs: 2, sm: 3 }, mb: 3 }}>
                     <Grid item xs={12} sm={4} sx={styles.container}>
@@ -805,7 +811,7 @@ const Main = () => {
 
 
                 <Grid container spacing={2} sx={{ mt: 3 }}>
-                    <Grid item xs={12} md={8}> {/* Adjust the number of columns for different screen sizes */}
+                    <Grid item xs={12} md={6} sm={12}> {/* Adjust the number of columns for different screen sizes */}
                         <img
                             src={Certificate}
                             alt="Certificate"
@@ -813,8 +819,8 @@ const Main = () => {
                             style={{ maxWidth: "800px", height: "auto" }} // Limit the maximum width
                         />
                     </Grid>
-                    <Grid item xs={12} md={4} sm={12} sx={{ mt: { xs: 3, md: 5 } }}> {/* Adjust the spacing for different screen sizes */}
-                        <Typography variant="body2">
+                    <Grid item xs={12} md={6} sm={12} sx={{ mt: 2 }}> {/* Adjust the spacing for different screen sizes */}
+                        <Typography variant="h6">
                             You'll receive the certificate upon the completion of the course. It adds great value to the resume for students and working professionals.
                         </Typography>
                         <ButtonCompo label="GET YOUR ACCESS NOW" size={20} />

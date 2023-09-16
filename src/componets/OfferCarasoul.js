@@ -139,6 +139,7 @@ function Offer() {
                       borderRadius: 1,
                       width: "35rem",
                       // top: -50,
+                      // top: activeStep==index?-30:0,
                     }}
                   >
                     <Grid item xs={6}

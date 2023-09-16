@@ -8,13 +8,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export default function FAQ({title, detail}) {
     return (
         <Accordion
-            style={{
-                width: '60rem',
+            sx={{
+                width: '80%',
                 color: '#000000',
-                fontSize: 25,
-                border:0,
-                boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19)',
-                margin:"2rem"
+                border:"1 solid #000000",
+                borderRadius:3,
+                ml:"2rem",
+                my:1
 
             }}
         >

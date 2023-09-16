@@ -29,30 +29,11 @@ export default function AppComponent(props) {
         setValue(newValue);
     };
 
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                Finnovationz
-            </Typography>
-            <Divider />
-            <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
-
-    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <Box sx={{ display: 'flex' }}>
             {/* <CssBaseline /> */}
-            <AppBar component="nav" sx={{ backgroundColor: 'white', color: "#352A9A" }}>
+            <AppBar component="nav" sx={{ backgroundColor: 'white', color: "#352A9A",boxShadow: 'none',  }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -88,7 +69,6 @@ export default function AppComponent(props) {
                             }}
                         >
                             {navItems.map((item, index) => (
-
                                 <Tab key={item} value={index} label={
 
                                     <Typography
@@ -98,7 +78,6 @@ export default function AppComponent(props) {
                                         {item}
                                     </Typography>
                                 } />
-
                             ))}
                         </Tabs>
                     </Box>

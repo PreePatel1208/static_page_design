@@ -79,42 +79,52 @@ function CarouselComponent() {
     setActiveStep(step);
   };
 
-  const newtheme = createTheme(
-    {
-      palette: {
-        primary: {
-          light: '#FABF35',
-          main: '#FABF35',
-          dark: '#FABF35',
-          contrastText: '#FABF35',
-        },
-        color: "red"
-      },
-    }
-  );
+  const newtheme = createTheme();
 
 
 
   return (
     <>
       <Grid item>
-      <Box
-        sx={{
-          display: "flex",
-          mb: 4
-        }}
-      >
-        <Button variant="contained"
+        <Box
           sx={{
-            px: 5,
-            py: 2,
-            borderRadius: "30px",
-            color: "#010851",
-            fontWeight: 600,
-            background: "#FABF35"
+            display: "flex",
+            mb: 4
           }}
-        >Chapters
-        </Button>
+        >
+          <Button variant="contained"
+            sx={{
+              px: 5,
+              py: 2,
+              borderRadius: "30px",
+              color: "#010851",
+              fontWeight: 600,
+              background: "#FABF35"
+            }}
+          >Chapters
+          </Button>
+          <Stack spacing={2}>
+          <ThemeProvider theme={newtheme}>
+            <Pagination
+              count={5}
+              color='primary'
+              renderItem={(item) => (
+                <PaginationItem
+                  {...item}
+                  sx={{
+                    '&.Mui-selected': {
+                      backgroundColor: '#FABF35', // Background color for selected number
+                      color: '#010851', 
+                      // fontSize: '20px', 
+                      borderRadius: '50%',         
+                      p:3   // Text color for selected number
+                    },
+                  }}
+                />
+              )}
+            />
+          </ThemeProvider>
+        </Stack>
       </Box>
       <Box sx={{
         flexGrow: 1, position: "relative",
@@ -149,7 +159,7 @@ function CarouselComponent() {
                 overflow: "hidden",
                 width: "30rem",
                 borderRadius: 1,
-                top: -30,
+                top: activeStep==index?-30:0,
                 marginLeft: index !== 0 ? '2rem' : 0, // Add margin between items
               }}
             >
@@ -238,7 +248,7 @@ function CarouselComponent() {
   );
 }
 
-export default CarouselComponent 
+export default CarouselComponent
 
 // import React, { useState } from 'react';
 // import { Box, Button, CardHeader, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, MobileStepper, Typography } from '@mui/material';

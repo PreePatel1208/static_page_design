@@ -125,7 +125,22 @@ export default function InteractiveList() {
             <Grid container spacing={2} sx={{ mt: 3 }}>
 
                 <Grid item xs={12}>
-                    <Title title="Still Have More Questions?" />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: "center",
+                            mt: { xs: 2, sm: 3, md: 4 }, // Responsive margin top
+                        }}
+                    >
+                        <Typography component="h2" variant='h4' sx={{
+                            marginLeft: { xs: 1, sm: 2, md: 3 }, // Responsive left margin
+                            fontWeight: 'bold',
+                            color: "#352A9A",
+                        }}>
+                            Still have any Question ?
+                        </Typography>
+                    </Box>
                 </Grid>
                 <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 2 }}>
                     <ButtonCompo label="CONTACT US" size={20} />
