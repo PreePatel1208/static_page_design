@@ -62,7 +62,7 @@ const images = [
   },
 ];
 
-function SwipeableTextMobileStepper() {
+function CarouselComponent() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = images.length;
@@ -98,255 +98,304 @@ function SwipeableTextMobileStepper() {
   return (
     <>
       <Grid item>
-        <Box
+      <Box
+        sx={{
+          display: "flex",
+          mb: 4
+        }}
+      >
+        <Button variant="contained"
           sx={{
-            display: "flex",
-            mb: 4
+            px: 5,
+            py: 2,
+            borderRadius: "30px",
+            color: "#010851",
+            fontWeight: 600,
+            background: "#FABF35"
+          }}
+        >Chapters
+        </Button>
+      </Box>
+      <Box sx={{
+        flexGrow: 1, position: "relative",
+        mt: 5
+      }}
+      >
+        <AutoPlaySwipeableViews
+          axis={theme.direction === 'ltr' ? 'x-reverse' : 'x'}
+          index={activeStep}
+          onChangeIndex={handleStepChange}
+          enableMouseEvents
+          style={{
+            overflow: 'inherit',
+            width: "40rem",
+            height: "15rem",
           }}
         >
-          <Button variant="contained"
-            sx={{
-              px: 5,
-              py: 2,
-              borderRadius: "30px",
-              color: "#010851",
-              fontWeight: 600,
-              background: "#FABF35"
-            }}
-          >Chapters
-          </Button>
-          {/* <Stack spacing={2}>
-            <ThemeProvider theme={newtheme}>
-              <Pagination
-                count={5}
-                color='primary'
-                renderItem={(item) => (
-                  <PaginationItem
-                    {...item}
-                  />
-                )}
-              />
-            </ThemeProvider>
-          </Stack> */}
-        </Box>
-        <Box sx={{
-          flexGrow: 1, position: "relative",
+          {images.map((step, index) => (
+            <Box
+              key={index}
+              sx={{
+                boxShadow: 3,
+                bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#101010' : '#fff'),
+                color: '#000000',
+                textAlign: 'center',
+                fontSize: 24,
+                fontWeight: '600',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: "absolute",
+                overflow: "hidden",
+                width: "30rem",
+                borderRadius: 1,
+                top: -30,
+                marginLeft: index !== 0 ? '2rem' : 0, // Add margin between items
+              }}
+            >
+              <Grid
+                sx={{
+                  mt: 1
+                }}
+              >
+                <Grid container>
+                  <Grid item xs={8}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "left",
+                    }}
+                    sx={{
+                      ml: 2
+                    }}
+                  >
+                    <Button variant="contained"
+                      sx={{
+                        px: 2,
+                        py: 1,
+                        borderRadius: 5,
+                        color: "#fffff",
+                        background: '#352A9A'
+                      }}
+                    >Ch {index + 1}
+                    </Button>
+                  </Grid>
+                  <Grid item xs={3}>
+                    <Typography component="div" style={{ fontSize: 13, color: "#010851" }}>
+                      Duration:  2 weeks
+                    </Typography>
+                  </Grid>
+                </Grid>
+                <Grid item xs={12}>
+                  <List
+                    sx={{ bgcolor: 'background.paper' }}
+                    aria-label="contacts"
+                  >
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <FiberManualRecordIcon style={{ fontSize: 12 }} />
+                        </ListItemIcon>
+                        <ListItemText primary="You make profit at the time of buying stocks," />
+                      </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <FiberManualRecordIcon style={{ fontSize: 12 }} />
+                        </ListItemIcon>
+                        <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them." />
+                      </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <FiberManualRecordIcon style={{ fontSize: 12 }} />
+                        </ListItemIcon>
+                        <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them" />
+                      </ListItemButton>
+                    </ListItem>
+                  </List>
+                </Grid>
+              </Grid>
+            </Box>
+          ))}
+        </AutoPlaySwipeableViews>
+      </Box>
+      <MobileStepper
+        steps={maxSteps}
+        position="static"
+        activeStep={activeStep}
+        sx={{
+          display: 'flex',
+          alignItems: "center",
+          justifyContent: "center",
           mt: 5
         }}
-        >
-
-          <AutoPlaySwipeableViews
-            axis={theme.direction === 'ltr' ? 'x-reverse' : 'x'}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
-            style={{
-              overflow: 'inherit',
-              width: "40rem",
-              height: "15rem",
-            }}
-
-          >
-            {images.map((step, index) => (
-
-
-              activeStep == index ?
-                <Box
-                  sx={{
-                    boxShadow: 3,
-                    bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#101010' : '#fff'),
-                    color: '#000000',
-                    textAlign: 'center',
-                    fontSize: 24,
-                    fontWeight: '600',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: "absolute",
-                    overflow: "hidden",
-                    width: "30rem",
-                    borderRadius: 1,
-                    // marginBottom:"5rem",
-                    top: -30,
-                  }}
-                >
-                  <Grid
-                    sx={{
-                      mt: 1
-                    }}
-                  >
-
-                    <Grid container  >
-                      <Grid item xs={8}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "left",
-                        }}
-                        sx={{
-                          ml: 2
-                        }}
-                      >
-                        <Button variant="contained"
-                          sx={{
-                            px: 2,
-                            py: 1,
-                            borderRadius: 5,
-                            color: "#fffff",
-                            background: '#352A9A'
-                          }}
-                        >Ch {activeStep + 1}
-                        </Button>
-                      </Grid>
-                      <Grid item xs={3}
-                      >
-                        <Typography component="div" style={{ fontSize: 13, color: "#010851" }}>
-                          Duration:  2 week
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid item xs={12}
-                    >
-                      <List
-                        sx={{ bgcolor: 'background.paper' }}
-                        aria-label="contacts"
-                      >
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              <FiberManualRecordIcon style={{ fontSize: 12 }} />
-                            </ListItemIcon>
-                            <ListItemText primary="You make profit at the time of buying stocks," />
-                          </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              <FiberManualRecordIcon style={{ fontSize: 12 }} />
-                            </ListItemIcon>
-                            <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them." />
-                          </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              <FiberManualRecordIcon style={{ fontSize: 12 }} />
-                            </ListItemIcon>
-                            <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them" />
-                          </ListItemButton>
-                        </ListItem>
-                      </List>
-                    </Grid>
-                  </Grid>
-                </Box>
-                :
-                <Box
-                  sx={{
-                    boxShadow: 3,
-                    bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#101010' : '#fff'),
-                    color: '#000000',
-                    textAlign: 'center',
-                    fontSize: 24,
-                    fontWeight: '600',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: "absolute",
-                    overflow: "hidden",
-                    width: "30rem",
-                    borderRadius: 3
-                    // top: -100 ,
-                  }}
-                >
-                  <Grid
-                    sx={{
-                      mt: 1
-                    }}
-                  >
-
-                    <Grid container  >
-                      <Grid item xs={8}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "left",
-                        }}
-                        sx={{
-                          ml: 2
-                        }}
-                      >
-                        <Button variant="contained"
-                          sx={{
-                            px: 2,
-                            py: 1,
-                            borderRadius: 5,
-                            color: "#fffff",
-                            background: '#352A9A'
-                          }}
-                        >Ch {activeStep + 1}
-                        </Button>
-                      </Grid>
-                      <Grid item xs={3}
-                      >
-                        <Typography component="div" style={{ fontSize: 13, color: "#010851" }}>
-                          Duration:  2 week
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid item xs={12}
-                    >
-                      <List
-                        sx={{ bgcolor: 'background.paper' }}
-                        aria-label="contacts"
-                      >
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              <FiberManualRecordIcon style={{ fontSize: 12 }} />
-                            </ListItemIcon>
-                            <ListItemText primary="You make profit at the time of buying stocks," />
-                          </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              <FiberManualRecordIcon style={{ fontSize: 12 }} />
-                            </ListItemIcon>
-                            <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them." />
-                          </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                          <ListItemButton>
-                            <ListItemIcon>
-                              <FiberManualRecordIcon style={{ fontSize: 12 }} />
-                            </ListItemIcon>
-                            <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them" />
-                          </ListItemButton>
-                        </ListItem>
-                      </List>
-                    </Grid>
-                  </Grid>
-                </Box>
-            ))}
-          </AutoPlaySwipeableViews>
-
-        </Box >
-        <MobileStepper
-          steps={maxSteps}
-          position="static"
-          activeStep={activeStep}
-          sx={{
-            display: 'flex',
-            alignItems: "center",
-            justifyContent: "center",
-            mt: 5
-          }}
-
-
-        />
-      </Grid >
+      />
+    </Grid >
     </>
   );
 }
 
-export default SwipeableTextMobileStepper 
+export default CarouselComponent 
+
+// import React, { useState } from 'react';
+// import { Box, Button, CardHeader, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, MobileStepper, Typography } from '@mui/material';
+// import AutoPlaySwipeableViews from 'react-swipeable-views';
+// import { useTheme } from '@mui/material/styles';
+// import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+
+// const images = [1, 2, 3,4,5]; // Replace with your data or image sources
+
+// function CarouselComponent() {
+//   const theme = useTheme();
+//   const maxSteps = images.length;
+//   const [activeStep, setActiveStep] = useState(0);
+
+//   const handleStepChange = (step) => {
+//     setActiveStep(step);
+//   };
+
+//   return (
+//     <Grid item>
+//       <Box
+//         sx={{
+//           display: "flex",
+//           mb: 4
+//         }}
+//       >
+//         <Button variant="contained"
+//           sx={{
+//             px: 5,
+//             py: 2,
+//             borderRadius: "30px",
+//             color: "#010851",
+//             fontWeight: 600,
+//             background: "#FABF35"
+//           }}
+//         >Chapters
+//         </Button>
+//       </Box>
+//       <Box sx={{
+//         flexGrow: 1, position: "relative",
+//         mt: 5
+//       }}
+//       >
+//         <AutoPlaySwipeableViews
+//           axis={theme.direction === 'ltr' ? 'x-reverse' : 'x'}
+//           index={activeStep}
+//           onChangeIndex={handleStepChange}
+//           enableMouseEvents
+//           style={{
+//             overflow: 'inherit',
+//             width: "40rem",
+//             height: "15rem",
+//           }}
+//         >
+//           {images.map((step, index) => (
+//             <Box
+//               key={index}
+//               sx={{
+//                 boxShadow: 3,
+//                 bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#101010' : '#fff'),
+//                 color: '#000000',
+//                 textAlign: 'center',
+//                 fontSize: 24,
+//                 fontWeight: '600',
+//                 display: 'flex',
+//                 alignItems: 'center',
+//                 justifyContent: 'center',
+//                 position: "absolute",
+//                 overflow: "hidden",
+//                 width: "30rem",
+//                 borderRadius: 1,
+//                 top: -30,
+//                 marginLeft: index !== 0 ? '2rem' : 0, // Add margin between items
+//               }}
+//             >
+//               <Grid
+//                 sx={{
+//                   mt: 1
+//                 }}
+//               >
+//                 <Grid container>
+//                   <Grid item xs={8}
+//                     style={{
+//                       display: "flex",
+//                       alignItems: "center",
+//                       justifyContent: "left",
+//                     }}
+//                     sx={{
+//                       ml: 2
+//                     }}
+//                   >
+//                     <Button variant="contained"
+//                       sx={{
+//                         px: 2,
+//                         py: 1,
+//                         borderRadius: 5,
+//                         color: "#fffff",
+//                         background: '#352A9A'
+//                       }}
+//                     >Ch {index + 1}
+//                     </Button>
+//                   </Grid>
+//                   <Grid item xs={3}>
+//                     <Typography component="div" style={{ fontSize: 13, color: "#010851" }}>
+//                       Duration:  2 weeks
+//                     </Typography>
+//                   </Grid>
+//                 </Grid>
+//                 <Grid item xs={12}>
+//                   <List
+//                     sx={{ bgcolor: 'background.paper' }}
+//                     aria-label="contacts"
+//                   >
+//                     <ListItem disablePadding>
+//                       <ListItemButton>
+//                         <ListItemIcon>
+//                           <FiberManualRecordIcon style={{ fontSize: 12 }} />
+//                         </ListItemIcon>
+//                         <ListItemText primary="You make profit at the time of buying stocks," />
+//                       </ListItemButton>
+//                     </ListItem>
+//                     <ListItem disablePadding>
+//                       <ListItemButton>
+//                         <ListItemIcon>
+//                           <FiberManualRecordIcon style={{ fontSize: 12 }} />
+//                         </ListItemIcon>
+//                         <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them." />
+//                       </ListItemButton>
+//                     </ListItem>
+//                     <ListItem disablePadding>
+//                       <ListItemButton>
+//                         <ListItemIcon>
+//                           <FiberManualRecordIcon style={{ fontSize: 12 }} />
+//                         </ListItemIcon>
+//                         <ListItemText primary="This class will teach you to pick the profitable stocks that hold the future in them" />
+//                       </ListItemButton>
+//                     </ListItem>
+//                   </List>
+//                 </Grid>
+//               </Grid>
+//             </Box>
+//           ))}
+//         </AutoPlaySwipeableViews>
+//       </Box>
+//       <MobileStepper
+//         steps={maxSteps}
+//         position="static"
+//         activeStep={activeStep}
+//         sx={{
+//           display: 'flex',
+//           alignItems: "center",
+//           justifyContent: "center",
+//           mt: 5
+//         }}
+//       />
+//     </Grid >
+//   );
+// }
+
+// export default CarouselComponent;

@@ -11,15 +11,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Top from './Top';
-import Main from './Main';
-import Grid from '@mui/material/Grid';
+import Top from './componets/Top';
+import Main from './componets/Main';
 
-
-const drawerWidth = 240;
 const navItems = ['Home', 'Option', 'Brockrage comparision', 'Finclub', 'Product'];
 
-export default function HeaderCompo(props) {
+export default function AppComponent(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [value, setValue] = React.useState(0);
@@ -107,7 +104,7 @@ export default function HeaderCompo(props) {
                     </Box>
                 </Toolbar>
             </AppBar>
-            <Box sx={{ p: 3 }}>
+            <Box >
                 <Toolbar />
                 <Top />
                 <Main />

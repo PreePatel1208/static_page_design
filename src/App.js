@@ -1,12 +1,9 @@
-import './App.css';
-import HeaderCompo from './componets/Header';
-import Main from './componets/Main';
-import Top from './componets/Top';
+import AppComponent from './Dashboard';
 
 function App() {
   return (
     <>
-    <HeaderCompo />
+    <AppComponent />
     </>
   );
 }
